@@ -51,31 +51,46 @@
 	
 <tbody>
 <?php 
-	require 'db_connect.php';
-	$current_date = date('Y-m-d');
-	$query = "SELECT * FROM job_details";
-	$query_jobs = mysqli_query($conn,$query);		
-	$query_rows_num = mysqli_num_rows($query_jobs);
-	if($query_rows_num > 0)
-	{		
-		while($query_jobs_result = mysqli_fetch_array($query_jobs))
-		{	
+	// require 'db_connect.php';
+	// $current_date = date('Y-m-d');
+	// $query = "SELECT * FROM job_details";
+	// $query_jobs = mysqli_query($conn,$query);		
+	// $query_rows_num = mysqli_num_rows($query_jobs);
+	
 
-			echo '<tr>
-							<td>'.$query_jobs_result['name'].'</td>
-							<td>'.$query_jobs_result['profile'].'</td>
-							<td>'.$query_jobs_result['key_skill'].'</td>
-							<td>'.$query_jobs_result['location'].'</td>
-							<td>'.$query_jobs_result['ctc'].'</td>
-							<td>
-							<a class= "btn btn-primary btn-sm"  href= "search.jobs.view.php" onClick="MyWindow=window.open('."'search.jobs.view.php?id="
-							.$query_jobs_result['id']."', '_window');".'return false;"> Apply </a> 
-							</td>
+	function httpPost($url)
+	{
+		$ch = curl_init();  
+	 
+		curl_setopt($ch,CURLOPT_URL,$url);
+		curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
+		curl_setopt($ch,CURLOPT_HEADER, false); 
+		
+		$output=curl_exec($ch);
+	
+		curl_close($ch);
+		return $output;
+	} 
+	$query_jobs= httpPost('http://localhost:3000/');
+	$ans=json_decode($query_jobs);
+		
+			for($i=0;$i<count($ans);$i++)
+			{	
+				echo '<tr>
+								<td>'.$ans[$i]->name.'</td>
+								<td>'.$ans[$i]->profile.'</td>
+								<td>'.$ans[$i]->key_skill.'</td>
+								<td>'.$ans[$i]->location.'</td>
+								<td>'.$ans[$i]->ctc.'</td>
+								<td>
+								<a class= "btn btn-primary btn-sm"  href= "search.jobs.view.php" onClick="MyWindow=window.open('."'search.jobs.view.php?id="
+								.$ans[$i]->id."', '_window');".'return false;"> Apply </a> 
+								</td>
 						</tr>';
 			}
-	}
-    
-?>
+		
+		
+	?>
     </tbody>
 	<script>
   const handsfree = new Handsfree({weboji: true})
