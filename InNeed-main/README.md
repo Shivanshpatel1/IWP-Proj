@@ -1,21 +1,5 @@
 # InNeed
-Job Portal For Physically Disabled People
-InNeed is a web based job search portal specially designed for physically
-challenged. We have used HTML, CSS, JavaScript, Bootstrap, NodeJS, PHP,
-MySql. In order to ease the experience for the disabled we have provided gesture
-control to navigate across the website. This responsive and dynamic website will
-help the needy physically disabled get a job and get a chance to live an
-independent life. While on the other hand, the employer will get a needy and
-hardworking employee.
-The web portal includes login, signup, and register options for both job seekers and
-employers. For employers the form asks company name and other details to
-register. One the registration is done the employer is redirected to the employer
-dashboard and gets an option to list jobs.
-The Employer can list their job as per their hirings. On the other side, we ask for
-educational details for the job seeker to register, after the registration the job seeker
-is redirected to their dashboard where they can apply for different job openings as
-per their likings. InNeed being a fast and responsive website it makes it easy for
-both the employer and job seeker to use.
+InNeed is a web-based job search portal designed for physically challenged people using HTML, CSS, JavaScript, Bootstrap, NodeJS, PHP, and MySql. The portal provides gesture control to navigate, making it easier for the disabled to use. Job seekers and employers can sign up, register, and login to access the portal's features. Employers can list job openings on their dashboard, while job seekers can apply for openings after registering and filling out their educational details. The portal aims to help physically challenged individuals find jobs and gain independence while helping employers find hardworking employees. The website is responsive, making it user-friendly for both job seekers and employers.
 
 Demo :https://inneed-job-portal.000webhostapp.com/index.php
 
